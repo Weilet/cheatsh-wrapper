@@ -1,5 +1,5 @@
 [package]
-name = "cheatsh-wrapper"
+name = "chr"
 version = "0.1.0"
 edition = "2021"
 
