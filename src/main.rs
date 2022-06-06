@@ -5,7 +5,7 @@ fn main() {
     let query = String::new();
     let args: Vec<_> = env::args().collect();
     let length = args.len();
-    if length >= 1 {
+    if length > 1 {
         url.push_str(format!("{}/", args[1]).as_str());
         for i in 2..length {
             if i == length - 1 {
@@ -14,8 +14,10 @@ fn main() {
                 url.push_str(format!("{}+", args[i]).as_str());
             }
         }
+    } else {
+        print!("Usage: chr {{language}} {{query}}\n");    
+        return;
     }
-    //concat query to &str url
     url.push_str(&query);
     let child = std::process::Command::new("curl")
         .arg(url)
